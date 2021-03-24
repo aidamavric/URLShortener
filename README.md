@@ -1,1 +1,3 @@
 # URLShortener
+
+## You can run the application by applying the command: java -jar ....
