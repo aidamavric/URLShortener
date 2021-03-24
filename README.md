@@ -1,4 +1,4 @@
-# URl Shortener help page
+# URl Shortener
 
 ## Getting Started
 UrlShortener exposes APIs for registering account, registering URLs and fetching statistic of visits per one account.
