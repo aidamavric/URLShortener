@@ -16,8 +16,10 @@ public class UrlShortenerConstants {
   public final String HELP_URL = "/help";
   public static final String ACCOUNT_ID_MUST_NOT_BE_EMPTY_OR_NULL =
       "AccountId must not be empty or null.";
-  public static final String URL_MUST_BE_VALID_URL_SYNTAX = "Url must be valid url syntax.";
-  public static final String URL_MUST_NOT_BE_EMPTY_OR_NULL = "Url must not be empty or null.";
-  public static final String SHOULD_HAVE_ON_OF_FOLLOWING_VALUES_301_OR_302 =
+  public final String URL_MUST_BE_VALID_URL_SYNTAX = "Url must be valid url syntax.";
+  public final String URL_MUST_NOT_BE_EMPTY_OR_NULL = "Url must not be empty or null.";
+  public final String SHOULD_HAVE_ON_OF_FOLLOWING_VALUES_301_OR_302 =
       "Redirect type should have on of following values: 301 or 302.";
+
+  public final String OPEN_API_BASIC_AUTH = "basicAuth";
 }

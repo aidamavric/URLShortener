@@ -7,6 +7,8 @@ import com.shortener.url.dto.UrlRegistrationResponse;
 import com.shortener.url.service.AccountService;
 import com.shortener.url.service.UrlService;
 import com.shortener.url.util.UrlShortenerConstants;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import java.util.Map;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -66,6 +68,8 @@ public class ConfigurationController {
    * @param urlRegistrationRequest request that contains url for registration
    * @return shortUrl registration response with generated short url
    */
+  @SecurityRequirement(name = UrlShortenerConstants.OPEN_API_BASIC_AUTH)
+  @Operation(summary = "Register URL endpoint", security = @SecurityRequirement(name = "basicAuth"))
   @PostMapping(UrlShortenerConstants.REGISTER_URL)
   public ResponseEntity<UrlRegistrationResponse> registerUrl(
       @Valid @RequestBody UrlRegistrationRequest urlRegistrationRequest) {
@@ -86,6 +90,7 @@ public class ConfigurationController {
    * @param accountId id of account to fetch statistic for
    * @return map of account's url and number of visits
    */
+  @SecurityRequirement(name = UrlShortenerConstants.OPEN_API_BASIC_AUTH)
   @GetMapping(value = UrlShortenerConstants.GET_STATISTIC_URL)
   public ResponseEntity<Map<String, Long>> getStatistics(
       @PathVariable(value = "AccountId") String accountId) {

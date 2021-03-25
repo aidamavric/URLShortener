@@ -1,25 +1,29 @@
 # URl Shortener
 
 ## Getting Started
-UrlShortener exposes APIs for registering account, registering URLs and fetching statistic of visits per one account.
+UrlShortener exposes APIs to register account, register URL and fetch statistic of URL visits per one account.
+Application is written in Java, using Spring framework and based on Spring Boot starter module.
+Dependencies are packaged as a Maven project: run <i> mvn install </i> to build executable jar with all dependencies.
 
 ### Run
-In order to run the application apply the command <i> java -jar URLShortener.jar</i>
+To run the application apply the command: <i> java -jar URLShortener-1.0.0.jar</i>
 
 ### Guides
-In order to call APIs you will need any REST client, for example Postman. You can import example of postman project from:
-<i>src/main/resources/postman/URL_shortener.postman_collection.json</i>.
+In order to call APIs any REST client is required, for example Postman. Import Postman collection example from <i>src/main/resources/postman/URL_shortener.postman_collection.json</i>.
+API is also accessible through Swagger-UI on URL: <i><b> http://localhost:8080/swagger.html </b></i>.
 
-* Before using any other API, you need to call <i>http://localhost:8080/account</i> with body containing
-account ID you want to register (as it is enclosed in the postman collection example).
+* Before using any other API, call <i><b>http://localhost:8080/account</b></i> with body containing
+account ID to register. Authorization header is not needed for this call.
 
-* After registering and getting generated password you need to set Authorization header for every other API call with Basic Auth method (chosen from dropdown in case you use Postman as a client) and set your account ID and provided password.
+* After registering and getting generated password, set Authorization header for every other API call with Basic Auth method.
+In case of using Postman as client: chose Basic Auth as type of Authorization and type Username (AccountId) and Password.
+In Swagger-UI click on Authorize button on the top right side and type Username (AccountId) and Password. Once credentials are filled in,
+Swagger will use them for all requests that require authorization.
 
-* For registering URL you need to call: <i>http://localhost:8080/register</i> with body containing
-URL you want to register and redirectType (optional). Default redirection type is 302.
+* To register URL call: <i><b>http://localhost:8080/register</b></i> with body containing
+URL to register and redirectType (optional). Default redirection type is 302.
 
-* You can fetch statistic of visits of all links per one account by calling <i>http://localhost:8080/statistic/{AccountId}</i>
-where {AccountId} is a path parameter you use to set account ID you want to fetch statistic for.
+* To fetch statistic of visits of all links per one account call: <i><b>http://localhost:8080/statistic/{AccountId}</b></i>
+where {AccountId} is a path parameter used to set account ID to fetch statistic for.
 
-* After obtaining a short URL, you can access it through any browser and you will be immediately redirected to your
-  original URL.
+* After obtaining a short URL, it can be accessed through any browser and immediately redirected to originally registered URL.
