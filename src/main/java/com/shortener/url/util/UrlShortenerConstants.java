@@ -2,7 +2,7 @@ package com.shortener.url.util;
 
 import lombok.experimental.UtilityClass;
 
-/** Utility class containing common constants */
+/** Utility class with common constants */
 @UtilityClass
 public class UrlShortenerConstants {
 

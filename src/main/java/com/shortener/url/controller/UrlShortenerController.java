@@ -25,6 +25,11 @@ public class UrlShortenerController {
 
   private final UrlService urlService;
 
+  /**
+   * Redirects short URL to original registered URL
+   * @param request request that contains short url
+   * @param httpServletResponse response to set redirection type status and location
+   */
   @GetMapping(AntPathMatcher.DEFAULT_PATH_SEPARATOR + "*")
   public void redirect(HttpServletRequest request, HttpServletResponse httpServletResponse) {
     String shortUrl = request.getRequestURI().substring(1);
