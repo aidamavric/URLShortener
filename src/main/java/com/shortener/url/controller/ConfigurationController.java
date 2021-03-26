@@ -37,6 +37,7 @@ public class ConfigurationController {
    * @param accountRegistrationRequest request that contains accountId for registration
    * @return account registration response with status message and description
    */
+  @Operation(summary = "Register Account")
   @PostMapping(UrlShortenerConstants.REGISTER_ACCOUNT_URL)
   public ResponseEntity<AccountRegistrationResponse> registerAccount(
       @Valid @RequestBody AccountRegistrationRequest accountRegistrationRequest) {
@@ -69,7 +70,7 @@ public class ConfigurationController {
    * @return shortUrl registration response with generated short url
    */
   @SecurityRequirement(name = UrlShortenerConstants.OPEN_API_BASIC_AUTH)
-  @Operation(summary = "Register URL endpoint", security = @SecurityRequirement(name = "basicAuth"))
+  @Operation(summary = "Register URL")
   @PostMapping(UrlShortenerConstants.REGISTER_URL)
   public ResponseEntity<UrlRegistrationResponse> registerUrl(
       @Valid @RequestBody UrlRegistrationRequest urlRegistrationRequest) {
@@ -91,6 +92,7 @@ public class ConfigurationController {
    * @return map of account's url and number of visits
    */
   @SecurityRequirement(name = UrlShortenerConstants.OPEN_API_BASIC_AUTH)
+  @Operation(summary = "Get statistic for Account")
   @GetMapping(value = UrlShortenerConstants.GET_STATISTIC_URL)
   public ResponseEntity<Map<String, Long>> getStatistics(
       @PathVariable(value = "AccountId") String accountId) {
